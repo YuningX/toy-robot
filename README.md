@@ -5,7 +5,8 @@
 1. Run `bundle install` from your shell to install gems
 2. To run a command simulator: `bin/simulator start`
 3. To run a file simulator: `bin/simulator start -f [FILE_PATH]`
-
+4. To run the Rspec tests: `rspec`
+5. To run simulator with the test file: `bin/simulator start -f test.txt`
 
 ## Specification
 
