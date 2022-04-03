@@ -1,12 +1,17 @@
 # Toy Robot
 
-#### What is this ?
+## Getting started
 
-Toy Robot is a ruby coding exercise that we get our potential candidates  complete for us (Mable) to understand their capabilities.  
+1. Run `bundle install` from your shell to install gems
+2. To run a command simulator: `bin/simulator start`
+3. To run a file simulator: `bin/simulator start -f [FILE_PATH]`
 
-#### What do I need to do ?
 
 ## Specification
+
+### What is this ?
+
+Toy Robot is a ruby coding exercise that we get our potential candidates  complete for us (Mable) to understand their capabilities.  
 
 ### Description
 - The application is a simulation of a toy robot moving on a square tabletop, 
