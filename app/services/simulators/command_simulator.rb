@@ -1,15 +1,13 @@
+# frozen_string_literal: true
+
 module Simulators
   class CommandSimulator < Simulators::Base
     def run
-      puts "Command Simulator start!"
+      puts 'Command Simulator start!'
       loop do
         print '> '
-        command = STDIN.gets.chomp()
-        begin
-          process_command(command)
-        rescue => e
-          p e
-        end
+        command = $stdin.gets.chomp
+        process_command(command)
       end
     end
   end

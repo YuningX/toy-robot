@@ -1,19 +1,17 @@
 module Commands
   class Move < Commands::Base
     def run(**args)
-      validate_command
-
       @robot = args[:robot]
 
-      raise ArgumentError, "robot cannot be nil" if @robot.nil?
+      raise ArgumentError, 'robot is invalid' unless @robot.is_a? Robot
 
       @robot.move
     end
-    
+
     private
 
     def validate_command
-      raise ArgumentError, "Command is invalid" unless @original_command == "MOVE"
+      raise ArgumentError, 'Command is invalid' unless @original_command == 'MOVE'
     end
   end
 end

@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'thor'
+gem 'activemodel'
 gem 'require_all'
-gem 'activemodel', '~> 4.2', '>= 4.2.6'
+gem 'rubocop', require: false
+gem 'thor'
 
 group :test do
   gem 'rspec'
+  gem 'shoulda-matchers'
 end

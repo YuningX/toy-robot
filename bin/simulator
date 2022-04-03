@@ -1,29 +1,28 @@
 #!/usr/bin/env ruby
-require "rubygems" # ruby1.9 doesn't "require" it though
-require "thor"
-require "active_model"
-require "require_all"
+# frozen_string_literal: true
 
-require_relative "../app/models/model_base.rb"
+require 'rubygems' # ruby1.9 doesn't "require" it though
+require 'thor'
+require 'active_model'
+require 'require_all'
+
+require_relative '../app/models/model_base'
 require_all 'app'
 
 class Simulator < Thor
-  desc "start", "Start Toy Robot Simulator"
-  method_option :file, :aliases => "-f", :desc => "Run the commands from a file", type: :string
+  desc 'start', 'Start Toy Robot Simulator'
+  method_option :file, aliases: '-f', desc: 'Run the commands from a file', type: :string
 
   def start
-    begin
-      simulator = if options[:file]
-                    Simulators::FileSimulator.new(file_path: options[:file])
-                  else
-                    Simulators::CommandSimulator.new
-                  end
-      simulator.run
-    rescue => e
-      raise e
-    end
+    simulator = if options[:file]
+                  Simulators::FileSimulator.new(file_path: options[:file])
+                else
+                  Simulators::CommandSimulator.new
+                end
+    simulator.run
+  rescue StandardError => e
+    raise e
   end
-
 end
 
 Simulator.start

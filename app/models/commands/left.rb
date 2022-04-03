@@ -1,19 +1,17 @@
 module Commands
   class Left < Commands::Base
     def run(**args)
-      validate_command
-
       @robot = args[:robot]
 
-      raise ArgumentError, "robot cannot be nil" if @robot.nil?
+      raise ArgumentError, 'robot is invalid' unless @robot.is_a? Robot
 
       @robot.left
     end
-    
+
     private
 
     def validate_command
-      raise ArgumentError, "Command is invalid" unless @original_command == "LEFT"
+      raise ArgumentError, 'Command is invalid' unless @original_command == 'LEFT'
     end
   end
 end
